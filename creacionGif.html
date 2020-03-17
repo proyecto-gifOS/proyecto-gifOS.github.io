@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="Styles/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet">
+    <title>gif.OS</title>
+</head>
+<body>
+    <div class="primer barraTitulo">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
+      visitas: 12.765.803</div>
+    <header style="width: min-content;">
+        <img src="img/arrow.svg" alt="Atrás" class="atras" onclick="index()"><img id="logo" class="logo" src="img/gifOF_logo.png" width="90" height="48" alt="Gif.OS">
+    </header>
+    <section class="grabar">
+        <div class="container" style="display: block;">
+            <div class="barraTitulo" style="margin: .2%; width: auto;">Crear Guifos</div>
+            <img src="img/window_img.png" alt="Window" class="window">
+            <div class="info">
+                <p>
+                    <span class="title">Aquí podrás crear tus propios guifos</span>
+                    <span class="line">
+                        Crear tu <span class="guifo">guifo</span> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son:<br>
+                    </span>
+                    <span class="line">
+                        <span class="numero">1)</span> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)<br>
+                    </span>
+                    <span class="line">
+                        <span class="numero">2)</span> Capturar tu momento guifo<br>
+                    </span>
+                    <span class="line">
+                        <span class="numero">3)</span> Revisar el momento<br>
+                    </span>
+                    <span class="line">
+                        <span class="numero">4)</span> Listo para subir y compartir!<br>
+                    </span>
+                    <span class="line">
+                        ¿Quieres comenzar a crear tu <span class="guifo">guifo</span> ahora?<br>
+                    </span>
+                </p>
+            </div>
+            <div class="botones">
+                <button class="cancelar" onclick="cancelar()">Cancelar</button>
+                <button class="comenzar" onclick="capturar()">Comenzar</button>
+            </div>
+        </div>
+        <div class="captura" style="display: none;">
+            <div class="barraTitulo" style="margin: .2%; width: auto;">Un Chequeo Antes de Empezar<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16"></div>
+            <div class="video">
+                <video></video>
+            </div>
+            <div class="capturar">
+                <button onclick="grabar()"><img src="img/camera.svg" alt="Capturar"></button><button onclick="grabar()">Capturar</button>
+                <button class="repeat" onclick="repetir()">Repetir Captura</button><button class="upload" onclick="guardar()">Subir Guifo</button>
+            </div>
+        </div>
+        <div class="exito" style="display: none;">
+            <div class="barraTitulo" style="margin: .2%; width: auto;">Guifo Subido Con Éxito<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16"></div>
+            <div class="container">
+                <div class="vistaPrevia">
+                    <div class="img">
+                        <img src="#" alt="Gif creado">
+                    </div>
+                </div>
+                <div class="opciones">
+                    <span class="text">Guifo creado con éxito</span>
+                    <button class="copy" onclick="copy()">Copiar Enlace Guifo</button>
+                    <button class="download" onclick="download()">Descargar Guifo</button>
+                    <button class="finish" onclick="recargar()">Listo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mis">
+        <div class="barraDivision">Mis guifos</div>
+        <div class="lista"></div>
+    </section>
+    <script src="JavaScript/javascript.js"></script>
+    <script src="JavaScript/creacionGifs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js"></script>
+</body>
+</html>
