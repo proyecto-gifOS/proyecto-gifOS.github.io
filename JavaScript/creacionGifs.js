@@ -55,7 +55,7 @@ function detener() {
         form = new FormData();
         form.append('file', blob, 'myGif.gif');
         gifActual = form.get('file');
-        url = URL.createObjectURL(blob);
+        url = URL.createObjectURL(gifActual);
         
         // Colocar gif
         let img = document.createElement('img');
@@ -90,6 +90,7 @@ window.onload = function() {
         img.style.width = "100%";
         img.style.height = "100%";
         img.style.zIndex = 0;
+        img.alt = i;
         let key = localStorage.key(i)
         if (key.slice(0,3) === "Gif") {
             img.src = localStorage.getItem(key);
@@ -117,10 +118,19 @@ function repetir() {
     document.querySelector("div.video img").remove();
     capturar();
 }
+let links;
 function guardar() {
-    let i = localStorage.getItem("0");
-    localStorage.setItem("Gif"+i,url);
-    localStorage.setItem("0",++i);
+    // let i = localStorage.getItem("0");
+    links = (localStorage.links).split(",");
+    console.warn(links)
+    links.unshift(url);
+    console.warn(links)
+    localStorage.setItem("links", links);
+    // Ordernar array asc
+    // aux.sort((a, b) => {
+    //     return (a-b)
+    // })
+
     video.remove();
     // crear campo del gif
     let divLista = document.querySelector("div.lista");
@@ -128,8 +138,6 @@ function guardar() {
     divGif.setAttribute("class", "gif");
     let divImg = document.createElement("div");
     divImg.setAttribute("class", "img");
-    // divLista.appendChild(divGif);
-    // divGif.appendChild(divImg);
 
     document.querySelector("div.captura div.barraTitulo").innerHTML = 'Subiendo Guifo<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16">';
     let divVideo = document.querySelector("div.video");
