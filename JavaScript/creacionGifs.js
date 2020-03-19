@@ -121,7 +121,7 @@ function repetir() {
 }
 let links;
 function guardar() {
-    if (window.location.pathname === "/creacionGif.html") {
+    if (window.location.pathname.slice(-17) === "/creacionGif.html") {
         links = (localStorage.links).split(",");
         links.unshift(url);
         localStorage.setItem("links", links);
