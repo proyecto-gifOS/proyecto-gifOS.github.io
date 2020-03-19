@@ -166,11 +166,11 @@ function guardar() {
 }
 window.addEventListener('scroll', () => {
     if (window.scrollY > 200) {
-        if (window.location.pathname.slice(-11) === "/inicio.html") {
+        if (window.location.pathname.slice(-12) === "/inicio.html") {
             document.querySelector("button.top").style.transform = "translateY(0px)"
         }
     }else{
-        if (window.location.pathname.slice(-11) === "/inicio.html") {
+        if (window.location.pathname.slice(-12) === "/inicio.html") {
             document.querySelector("button.top").style.transform = "translateY(100px)"
         }
     }
