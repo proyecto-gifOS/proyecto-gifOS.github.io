@@ -29,7 +29,7 @@ function grabar() {
         width: 360,
         hidden: 240,
         onGifRecordingStarted: () => {
-            console.log('started');
+            console.log('Inicio');
         }
     });
     recorder.startRecording();
@@ -74,6 +74,7 @@ function detener() {
 
         document.querySelector("div.captura div.barraTitulo").innerHTML = "Vista Previa";
     });
+    console.log("Fin");
 }
 // crear campo del gif
 setTimeout(() => {
@@ -155,24 +156,20 @@ function guardar() {
             document.querySelector("div.exito").removeAttribute("style");
             document.querySelector("div.vistaPrevia div.img img").src = url;
         },3000);
+
     }
 }
 function copy() {
     // Crea un campo de texto "oculto"
     var aux = document.createElement("input");
-
     // Asigna el contenido del elemento especificado al valor del campo
     aux.setAttribute("value", url);
-
     // Añade el campo a la página
     document.body.appendChild(aux);
-
     // Selecciona el contenido del campo
     aux.select();
-
     // Copia el texto seleccionado
     document.execCommand("copy");
-
     // Elimina el campo de la página
     document.body.removeChild(aux);
 }
@@ -181,4 +178,14 @@ function download() {
 }
 function recargar() {
     window.location.reload();
+}
+const heading = new Headers();
+const abortController = new AbortController();
+async function subir() {
+    await fetch("upload.giphy.com/v1/gifs?api_key=cg4axQvsF7TgCHqbxkOJc9bXr5n4W0Cr", {
+        method: "POST",
+        headers: heading,
+        body: gifActual,
+        cors: "cors",
+        signal: abortController.signal})
 }
